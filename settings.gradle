@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MarvelChallenge"
 include ':app'
+include ':character_details'
+include ':characters_list'
+include ':core'
