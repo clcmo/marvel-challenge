@@ -4,7 +4,7 @@ ext {
     targetSDK = 32
 
     kotlin_version = '1.7.10'
-    dagger_version = "2.23.1"
+    dagger_version = "2.44.2"
 
     buildTools = '7.0.4'
 
