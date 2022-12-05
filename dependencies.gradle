@@ -37,7 +37,7 @@ ext {
     okhttp3_logging_interceptor_version = "3.8.0"
 
     // Glide
-    glide_version = "4.8.0"
+    glide_version = "4.14.2"
 
 
     dependencies = [
