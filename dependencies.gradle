@@ -3,7 +3,7 @@ ext {
     minSDK = 21
     targetSDK = 32
 
-    kotlin_version = '1.7.10'
+    kotlin_version = '1.7.22'
     dagger_version = "2.23.1"
 
     buildTools = '7.0.4'
