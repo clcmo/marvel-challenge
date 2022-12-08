@@ -10,8 +10,8 @@
 
 The objective of this challenge is to implement an app where you can see the list of Marvel characters.
 
-- [ ] The app should show a list and be able to navigate to the details of each character.
-- [ ] In addition, the character can be favorite both in the list and in the details screen.
+- [x] The app should show a list and be able to navigate to the details of each character.
+- [x] In addition, the character can be favorite both in the list and in the details screen.
 - [ ] Favorite characters must be persisted on the device so that they can be accessed offline and shown in a favorites tab.
 
 ## API
@@ -26,28 +26,28 @@ The app's interface is divided into 3 parts and must be developed according to t
 - Home:
 
 - [ ] Button to favorite the item of each character.
-- [ ] Search item to filter a character by name in the list of characters.
-- [ ] Have an empty list interface, error or no internet.
+- [x] Search item to filter a character by name in the list of characters.
+- [x] Have an empty list interface, error or no internet.
 
 - Character details:
 
 - [ ] Favorite button.
-- [ ] Full size photo
-- [ ] Description (if any).
+- [x] Full size photo
+- [x] Description (if any).
 
 - Favorites:
 
-- [ ] List of characters favored by the user.
-- [ ] Empty list interface, error or no internet.
+- [x] List of characters favored by the user.
+- [x] Empty list interface, error or no internet.
 
 ## Requires
 
 - [x] Use Kotlin
-- [ ] Handling for connection failure.
+- [x] Handling for connection failure.
 - [ ] Unitary tests.
 - [ ] Screens working in Landscape and Portrait.
-- [ ] Integration with some CI/CD tool - Github's own 'Actions' can be used.
-- [ ] Implement on-screen accessibility.
+- [x] Integration with some CI/CD tool - Github's own 'Actions' can be used.
+- [x] Implement on-screen accessibility.
 
 ## Important
 

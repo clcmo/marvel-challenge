@@ -1,38 +1,62 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-parcelize'
+    id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
-
-    compileSdkVersion globalConfiguration["compileSDK"]
+    compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
         applicationId "com.clcmo.marvelchallenge"
-        minSdkVersion globalConfiguration["minSDK"]
-        targetSdkVersion globalConfiguration["targetSDK"]
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-    buildTypes {
-        debug {
-            crunchPngs false
-        }
-        release {
-            crunchPngs true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    buildFeatures {
+        dataBinding true
     }
-    namespace 'com.clcmo.marvelchallenge'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    //implementation project(":character_details")
-    //implementation project(":characters_list")
+    implementation project(':domain')
+    implementation project(':data')
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation dependencies.kotlin
+    implementation dependencies.core
+    implementation dependencies.appCompat
+    implementation dependencies.material
+    implementation dependencies.constraint
+    implementation dependencies.viewModel
+    implementation dependencies.retrofit
+    implementation dependencies.retroMoshi
+    implementation dependencies.glide
+    implementation dependencies.paging
+    implementation dependencies.hilt
+    kapt dependencies.hiltKapt
+    implementation dependencies.navigation
+    implementation dependencies.navigationUI
+
+    testImplementation testDependencies.jUnit
+    testImplementation testDependencies.testRunner
+    testImplementation testDependencies.testEspresso
+    testImplementation testDependencies.jUnitTest
+
 }

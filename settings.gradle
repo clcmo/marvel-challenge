@@ -1,1 +1,3 @@
-include ':app', ':core', ':characters_list', ':character_details'
+include ':app'
+include ':domain'
+include ':data'

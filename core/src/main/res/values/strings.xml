@@ -1,7 +1,0 @@
-<resources>
-    <string name="characters_title">Characters</string>
-    <string name="no_results_found">No results found</string>
-    <string name="try_again">Please try again…</string>
-    <string name="no_description_label">No description for this character</string>
-    <string name="no_internet_found">No Internet Found</string>
-</resources>
