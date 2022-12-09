@@ -3,7 +3,13 @@ package com.clcmo.domain.entities
 import android.util.Log
 import com.clcmo.data.model.CharacterSpotlight
 import com.clcmo.data.model.MarvelCharacter
-import com.clcmo.domain.MarvelDomainConstants
+import com.clcmo.domain.MarvelDomainConstants.API_KEY
+import com.clcmo.domain.MarvelDomainConstants.API_KEY_QUERY_KEY
+import com.clcmo.domain.MarvelDomainConstants.BASE_URL
+import com.clcmo.domain.MarvelDomainConstants.HASH_QUERY_KEY
+import com.clcmo.domain.MarvelDomainConstants.PRIVATE_API_KEY
+import com.clcmo.domain.MarvelDomainConstants.TAG
+import com.clcmo.domain.MarvelDomainConstants.TIMESTAMP_QUERY_KEY
 import com.clcmo.domain.entities.dto.ResponseDTO
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -48,7 +54,7 @@ interface MarvelService {
             return Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .baseUrl(MarvelDomainConstants.BASE_URL)
+                .baseUrl(BASE_URL)
                 .build()
                 .create(MarvelService::class.java)
         }
@@ -57,22 +63,22 @@ interface MarvelService {
         private fun createOkHttpClient(): OkHttpClient {
             return OkHttpClient.Builder()
                 .addInterceptor { chain ->
-                    val currentTime = System.currentTimeMillis()
+                    val timeStamp = System.currentTimeMillis()
 
                     val request = chain.request().newBuilder()
                     val originalUrl = chain.request().url()
                     val newUrl = originalUrl.newBuilder()
-                        .addQueryParameter(MarvelDomainConstants.TIMESTAMP_QUERY_KEY, currentTime.toString())
-                        .addQueryParameter(MarvelDomainConstants.API_KEY_QUERY_KEY, MarvelDomainConstants.MARVEL_API_KEY)
+                        .addQueryParameter(TIMESTAMP_QUERY_KEY, timeStamp.toString())
+                        .addQueryParameter(API_KEY_QUERY_KEY, API_KEY)
                         .addQueryParameter(
-                            MarvelDomainConstants.HASH_QUERY_KEY,
-                            createHash("$currentTime$MarvelDomainConstants.MARVEL_PRIVATE_API_KEY$MarvelDomainConstants.MARVEL_API_KEY")
+                            HASH_QUERY_KEY,
+                            createHash("$timeStamp$PRIVATE_API_KEY$API_KEY")
                         )
                         .build()
 
                     request.url(newUrl)
                     val response = chain.proceed(request.build())
-                    Log.d(MarvelDomainConstants.TAG, "Code : $response.code()")
+                    Log.d(TAG, "Code : $response.code()")
                     if(response.code() == 401){
                         return@addInterceptor response
                     }

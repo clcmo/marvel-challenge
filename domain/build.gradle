@@ -17,9 +17,9 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "MARVEL_API_BASE_URL", secretProperties["app.marvel_base_url"]
-        buildConfigField "String", "MARVEL_API_PUBLIC_KEY", secretProperties["app.marvel_public_api_key"]
-        buildConfigField "String", "MARVEL_API_HASH", secretProperties["app.marvel_hash"]
+        buildConfigField "String", "MARVEL_BASE_URL", secretProperties['app.MARVEL_BASE_URL']
+        buildConfigField "String", "MARVEL_API_KEY", secretProperties['app.MARVEL_API_KEY']
+        buildConfigField "String", "MARVEL_PRIVATE_API_KEY", secretProperties['app.MARVEL_PRIVATE_API_KEY']
 
     }
 
