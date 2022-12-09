@@ -31,6 +31,9 @@ interface MarvelService {
         @Query("nameStartsWith") nameStartsWith: String? = null
     ): ResponseDTO<MarvelCharacter>
 
+    @GET("v1/public/characters/{characterId}")
+    suspend fun getCharacter(@Path("characterId") characterId: Int): ResponseDTO<MarvelCharacter>
+
     @GET("v1/public/characters/{characterId}/comics")
     suspend fun getComics(@Path("characterId") characterId: Int): ResponseDTO<CharacterSpotlight>
 

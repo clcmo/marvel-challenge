@@ -37,8 +37,12 @@ The app's interface is divided into 3 parts and must be developed according to t
 
 - Favorites:
 
-- [x] List of characters favored by the user.
-- [x] Empty list interface, error or no internet.
+- [ ] List of characters favored by the user.
+- [ ] Empty list interface, error or no internet.
+
+- Extras: 
+
+- Include Series, Features, Events and Stories.
 
 ## Requires
 

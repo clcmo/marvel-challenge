@@ -19,14 +19,14 @@
             android:id="@+id/success_empty_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_available_data" />
+            android:text="@string/no_available_data"
             android:hint="@string/no_available_data" />
 
         <TextView
             android:id="@+id/error_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/there_is_something_wrong" />
+            android:text="@string/there_is_something_wrong"
             android:hint="@string/there_is_something_wrong" />
 
     </LinearLayout>

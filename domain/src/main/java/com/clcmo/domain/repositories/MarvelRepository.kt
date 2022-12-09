@@ -22,6 +22,8 @@ class MarvelRepository @Inject constructor(private val marvelService: MarvelServ
         CharactersDataSource(marvelService, query)
     }.flow
 
+    suspend fun getMarvelCharacter(marvelCharacterId: Int) = marvelService.getCharacter(marvelCharacterId)
+
     suspend fun getMarvelCharacterSpotlights(
         marvelCharacterId: Int,
         spotlightType: SpotlightType

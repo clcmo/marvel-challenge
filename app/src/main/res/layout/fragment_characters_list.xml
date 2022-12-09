@@ -26,7 +26,7 @@
                     android:layout_gravity="center"
                     android:contentDescription="@string/marvel_logo"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/marvel_logo"
+                    app:srcCompat="@drawable/ic_marvel_logo"
                     app:tint="?attr/colorPrimaryVariant" />
 
                 <com.google.android.material.appbar.MaterialToolbar

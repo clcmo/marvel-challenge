@@ -18,6 +18,19 @@ class DetailsViewModel @Inject constructor(
 ) :
     ViewModel() {
 
+    val description = liveData(Dispatchers.IO) {
+        emit(Loading)
+        try {
+            Success(
+                marvelRepository.getMarvelCharacter(
+                    state.get<MarvelCharacter>("marvelCharacter")?.id!!
+                )
+            )
+        } catch (e: Exception){
+            emit(Error(e))
+        }
+    }
+
     val comics = liveData(Dispatchers.IO) {
         emit(Loading)
         try {
