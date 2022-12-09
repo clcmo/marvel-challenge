@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Personagens Marvel</string>
-    <string name="search_title">Pesqui</string>
-    <string name="search_title">P</string>
+    <string name="search_title">Pesquisar</string>
     <string name="description_title">Descrição</string>
-    <string name="description_title">D</string>
     <string name="comics_title">Quadrinhos</string>
     <string name="events_title">Eventos</string>
-    <string name="events_title">E</string>
     <string name="series_title">Séries</string>
-    <string name="series_title">S</string>
     <string name="stories_title">Histórias</string>
-    <string name="stories_title">H</string>
     <string name="no_available_data">Não há dados disponíveis</string>
-    <string name="no_available_data">N</string>
     <string name="there_is_something_wrong">Tem algo errado aqui</string>
-    <string name="there_is_something_wrong">T</string>
     <string name="search_for_character">Procurar personagem...</string>
-    <string name="search_for_character">P</string>
     <string name="cancel">Cancelar</string>
-    <string name="cancel">C</string>
-    <string name="cancel">Ca</string>
     <string name="marvel_logo">Logo da Marvel</string>
-    <string name="marvel_logo">L</string>
     <string name="retry">Tentar Novamente</string>
-    <string name="retry">T</string>
 </resources>
