@@ -54,6 +54,8 @@ The app's interface is divided into 3 parts and must be developed according to t
 - [x] Fork the repository and when finished open a Pull Request for it.
 - [x] Do not mention to anyone where the project will be sent.
 
-Insert screenshot to inform what the visualization will be like
+| Details | List |
+| ------- | ---- |
+| ![Screenshot Details](https://github.com/clcmo/marvel-challenge/blob/main/docs/images/DetailsCharacter.jpeg?raw=true) | ![Screenshot List](https://github.com/clcmo/marvel-challenge/blob/main/docs/images/ListCharacters.jpeg?raw=true) | 
 
 Licence: [MIT](LICENSE)
