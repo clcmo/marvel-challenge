@@ -45,7 +45,7 @@ The app's interface is divided into 3 parts and must be developed according to t
 - [x] Use Kotlin
 - [x] Handling for connection failure.
 - [ ] Unitary tests.
-- [ ] Screens working in Landscape and Portrait.
+- [x] Screens working in Landscape and Portrait.
 - [x] Integration with some CI/CD tool - Github's own 'Actions' can be used.
 - [x] Implement on-screen accessibility.
 
