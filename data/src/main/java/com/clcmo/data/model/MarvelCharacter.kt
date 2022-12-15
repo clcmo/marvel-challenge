@@ -9,6 +9,6 @@ data class MarvelCharacter(
     val description: String,
     val thumbnail: Thumbnail,
     val id: Int,
-    val isFavorite: Int,
+    val isFavorite: Boolean,
 ) : Parcelable
 

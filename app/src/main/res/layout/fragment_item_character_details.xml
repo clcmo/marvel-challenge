@@ -52,7 +52,7 @@
                     android:id="@+id/isFavorite"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:contentDescription="@{character.isFavorite ? @string/yes_favorite : @string/no_favorite }"
+                    android:contentDescription="@{character.isFavorite == true ? @string/yes_favorite : @string/no_favorite }"
                     android:layout_gravity="bottom|end"
                     app:tint="?attr/colorPrimaryVariant"
                     tools:src="@drawable/ic_heart"

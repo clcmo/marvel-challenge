@@ -66,7 +66,7 @@ class CharacterItemDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedLis
     }
 
     private fun setFavorite(): Int = when (binding.character?.isFavorite) {
-        0 -> R.drawable.ic_heart
+        true -> R.drawable.ic_heart
         else -> R.drawable.ic_heart_border
     }
 
