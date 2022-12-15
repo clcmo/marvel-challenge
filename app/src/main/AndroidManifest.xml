@@ -1,8 +1,8 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.clcmo.marvelchallenge"
-    xmlns:dist="http://schemas.android.com/apk/distribution">
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.clcmo.marvelchallenge">
 
     <dist:module dist:instant="true" />
     <uses-permission android:name="android.permission.INTERNET" />
