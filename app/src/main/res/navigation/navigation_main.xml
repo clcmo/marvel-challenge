@@ -10,16 +10,42 @@
         android:name="com.clcmo.marvelchallenge.ui.fragment.CharactersListFragment"
         android:label="fragment_characters"
         tools:layout="@layout/fragment_characters_list">
+
         <action
-            android:id="@+id/action_charactersFragment_to_searchFragment"
+            android:id="@+id/action_listFragment_to_searchFragment"
             app:destination="@id/searchFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+
         <action
-            android:id="@+id/action_charactersFragment_to_detailsFragment"
+            android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_listFavoritesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_listFavoritesFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_listFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
@@ -43,9 +69,19 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.clcmo.marvelchallenge.ui.fragment.CharacterDetailsFragment"
+        android:name="com.clcmo.marvelchallenge.ui.fragment.CharacterItemDetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_character_details">
+        tools:layout="@layout/fragment_item_character_details">
+        <argument
+            android:name="marvelCharacter"
+            app:argType="com.clcmo.data.model.MarvelCharacter" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.clcmo.marvelchallenge.ui.fragment.CharactersListFavoritesFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_characters_favorites">
         <argument
             android:name="marvelCharacter"
             app:argType="com.clcmo.data.model.MarvelCharacter" />

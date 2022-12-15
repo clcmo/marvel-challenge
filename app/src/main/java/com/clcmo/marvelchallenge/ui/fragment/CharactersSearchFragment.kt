@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.clcmo.marvelchallenge.R
-import com.clcmo.marvelchallenge.adapters.CharactersAdapter
+import com.clcmo.marvelchallenge.adapters.CharactersListAdapter
 import com.clcmo.marvelchallenge.adapters.LoadingStateAdapter
 import com.clcmo.marvelchallenge.databinding.FragmentCharactersSearchBinding
 import com.clcmo.marvelchallenge.viewmodel.SearchViewModel
@@ -44,7 +44,7 @@ class CharactersSearchFragment : Fragment(), SearchView.OnQueryTextListener {
     @FlowPreview
     @ExperimentalCoroutinesApi
     private fun setupSearchCharactersRecyclerView() {
-        val charactersAdapter = CharactersAdapter(R.layout.item_view_search_character) {
+        val charactersAdapter = CharactersListAdapter(R.layout.item_view_search_character) {
             findNavController().navigate(
                 CharactersSearchFragmentDirections.actionSearchFragmentToDetailsFragment(it)
             )

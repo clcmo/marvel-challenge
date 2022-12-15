@@ -12,22 +12,22 @@ import androidx.navigation.fragment.findNavController
 import com.clcmo.marvelchallenge.R
 import com.clcmo.marvelchallenge.adapters.CharactersListAdapter
 import com.clcmo.marvelchallenge.adapters.LoadingStateAdapter
-import com.clcmo.marvelchallenge.databinding.FragmentCharactersListBinding
-import com.clcmo.marvelchallenge.viewmodel.CharactersViewModel
+import com.clcmo.marvelchallenge.databinding.FragmentCharactersFavoritesBinding
+import com.clcmo.marvelchallenge.viewmodel.FavoritesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharactersListFragment : Fragment(), Toolbar.OnMenuItemClickListener {
+class CharactersListFavoritesFragment : Fragment(), Toolbar.OnMenuItemClickListener {
 
-    private lateinit var binding: FragmentCharactersListBinding
-    private val viewModel: CharactersViewModel by viewModels()
+    private lateinit var binding: FragmentCharactersFavoritesBinding
+    private val viewModel: FavoritesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCharactersListBinding.inflate(inflater, container, false)
+        binding = FragmentCharactersFavoritesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,11 +45,11 @@ class CharactersListFragment : Fragment(), Toolbar.OnMenuItemClickListener {
     private fun setupCharactersRecyclerView() {
         val charactersAdapter = CharactersListAdapter(R.layout.item_view_character) {
             findNavController().navigate(
-                CharactersListFragmentDirections.actionListFragmentToDetailsFragment(it)
+                CharactersListFragmentDirections.actionListFavoritesFragmentToDetailsFragment(it)
             )
         }
 
-        with(binding.charactersRecyclerView) {
+        with(binding.favoritesRecyclerView) {
             adapter = charactersAdapter.withLoadStateHeaderAndFooter(
                 LoadingStateAdapter { charactersAdapter.retry() },
                 LoadingStateAdapter { charactersAdapter.retry() }
@@ -64,7 +64,7 @@ class CharactersListFragment : Fragment(), Toolbar.OnMenuItemClickListener {
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_search) {
             findNavController().navigate(
-                CharactersListFragmentDirections.actionListFragmentToSearchFragment()
+                CharactersListFragmentDirections.actionListFavoritesFragmentToSearchFragment()
             )
         }
         return false
