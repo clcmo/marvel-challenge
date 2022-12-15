@@ -53,10 +53,6 @@ The app's interface is divided into 3 parts and must be developed according to t
 - [x] Integration with some CI/CD tool - Github's own 'Actions' can be used.
 - [x] Implement on-screen accessibility.
 
-## Important
-
-- [x] Fork the repository and when finished open a Pull Request for it.
-- [x] Do not mention to anyone where the project will be sent.
 
 | Details | List |
 | ------- | ---- |
