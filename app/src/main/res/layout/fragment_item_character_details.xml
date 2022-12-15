@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.fragment.CharacterDetailsFragment">
+    tools:context=".ui.fragment.CharacterItemDetailsFragment">
 
     <data>
         <variable
@@ -47,6 +47,16 @@
                     android:layout_height="?attr/actionBarSize"
                     android:elevation="0dp"
                     app:layout_collapseMode="pin" />
+
+                <ToggleButton
+                    android:id="@+id/isFavorite"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@{character.isFavorite == true ? @string/yes_favorite : @string/no_favorite }"
+                    android:layout_gravity="bottom|end"
+                    app:tint="?attr/colorPrimaryVariant"
+                    tools:src="@drawable/ic_heart"
+                    />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -103,7 +113,8 @@
 
                 <include
                     android:id="@+id/comics_result_state"
-                    layout="@layout/view_result_state" />
+                    layout="@layout/view_result_state"
+                    />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/comics_recycler_view"

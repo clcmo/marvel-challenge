@@ -11,21 +11,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.clcmo.marvelchallenge.viewmodel.DetailsViewModel
 import com.clcmo.data.model.CharacterSpotlight
 import com.clcmo.marvelchallenge.R
 import com.clcmo.marvelchallenge.adapters.SpotlightsAdapter
+import com.clcmo.marvelchallenge.core.utils.Result
+import com.clcmo.marvelchallenge.databinding.FragmentItemCharacterDetailsBinding
+import com.clcmo.marvelchallenge.databinding.ViewResultStateBinding
+import com.clcmo.marvelchallenge.viewmodel.DetailsViewModel
 import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
-import com.clcmo.marvelchallenge.core.utils.Result
-import com.clcmo.marvelchallenge.databinding.FragmentCharacterDetailsBinding
-import com.clcmo.marvelchallenge.databinding.ViewResultStateBinding
 
 @AndroidEntryPoint
-class CharacterDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedListener {
+class CharacterItemDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedListener {
 
-    private lateinit var binding: FragmentCharacterDetailsBinding
-    private val args: CharacterDetailsFragmentArgs by navArgs()
+    private lateinit var binding: FragmentItemCharacterDetailsBinding
+    private val args: CharacterItemDetailsFragmentArgs by navArgs()
     private val viewModel: DetailsViewModel by viewModels()
 
     private var scrollRange = -1
@@ -35,7 +35,7 @@ class CharacterDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedListene
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCharacterDetailsBinding.inflate(inflater, container, false)
+        binding = FragmentItemCharacterDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,6 +45,10 @@ class CharacterDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedListene
         binding.character = args.marvelCharacter
         binding.appBarLayout.addOnOffsetChangedListener(this)
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+
+        binding.isFavorite.setOnClickListener {
+            setFavorite()
+        }
 
         setupSpotlightRecyclerViews(
             binding.comicsRecyclerView,
@@ -59,6 +63,11 @@ class CharacterDetailsFragment : Fragment(), AppBarLayout.OnOffsetChangedListene
             Pair(viewModel.series, binding.seriesResultState),
             Pair(viewModel.stories, binding.storiesResultState)
         )
+    }
+
+    private fun setFavorite(): Int = when (binding.character?.isFavorite) {
+        true -> R.drawable.ic_heart
+        else -> R.drawable.ic_heart_border
     }
 
     override fun onDestroyView() {

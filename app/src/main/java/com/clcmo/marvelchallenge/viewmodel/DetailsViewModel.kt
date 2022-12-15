@@ -15,8 +15,7 @@ import com.clcmo.marvelchallenge.core.utils.Result.*
 class DetailsViewModel @Inject constructor(
     private val marvelRepository: MarvelRepository,
     private val state: SavedStateHandle
-) :
-    ViewModel() {
+) : ViewModel() {
 
     val description = liveData(Dispatchers.IO) {
         emit(Loading)

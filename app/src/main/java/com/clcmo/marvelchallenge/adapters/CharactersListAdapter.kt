@@ -11,11 +11,11 @@ import com.clcmo.data.model.MarvelCharacter
 import com.clcmo.marvelchallenge.databinding.ItemViewCharacterBinding
 import com.clcmo.marvelchallenge.databinding.ItemViewSearchCharacterBinding
 
-class CharactersAdapter(
+class CharactersListAdapter(
     private val itemLayoutId: Int,
     private val block: (marvelCharacter: MarvelCharacter) -> Unit,
 ) :
-    PagingDataAdapter<MarvelCharacter, CharactersAdapter.CharactersViewHolder>(
+    PagingDataAdapter<MarvelCharacter, CharactersListAdapter.CharactersViewHolder>(
         characterDiffUtil
     ) {
 

@@ -13,4 +13,7 @@
     <string name="cancel">Cancel</string>
     <string name="marvel_logo">Marvel logo</string>
     <string name="retry">Retry</string>
+    <string name="favorites">Favorites</string>
+    <string name="yes_favorite">Character is your favorite</string>
+    <string name="no_favorite">Character is not your favorite</string>
 </resources>

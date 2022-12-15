@@ -10,27 +10,41 @@ import javax.inject.Inject
 
 class MarvelRepository @Inject constructor(private val marvelService: MarvelService) {
 
+    /**
+     * Buscar todos os personagens e os favoritos, através dos parametros
+     */
+
     fun getMarvelCharacters() = Pager(
         config = PagingConfig(Constants.DEFAULT_PAGE_SIZE, enablePlaceholders = false)
     ) {
-        CharactersDataSource(marvelService)
+        MarvelCharactersDataSource(marvelService)
     }.liveData
 
     fun searchForMarvelCharacters(query: String) = Pager(
         config = PagingConfig(Constants.DEFAULT_PAGE_SIZE, enablePlaceholders = false)
     ) {
-        CharactersDataSource(marvelService, query)
+        MarvelCharactersDataSource(marvelService, query)
     }.flow
 
-    suspend fun getMarvelCharacter(marvelCharacterId: Int) = marvelService.getCharacter(marvelCharacterId)
+    fun getMarvelFavoriteCharacters() = Pager(
+        config = PagingConfig(Constants.DEFAULT_PAGE_SIZE, enablePlaceholders = false)
+    ) {
+        MarvelCharactersDataSource(marvelService)
+    }.liveData
+
+    /**
+     * Buscar as descrições do personagem
+     */
+
+    suspend fun getMarvelCharacter(characterId: Int) = marvelService.getCharacter(characterId)
 
     suspend fun getMarvelCharacterSpotlights(
-        marvelCharacterId: Int,
-        spotlightType: SpotlightType
+        characterId: Int,
+        spotlightType: SpotlightType,
     ) = when (spotlightType) {
-        SpotlightType.COMICS -> marvelService.getComics(marvelCharacterId).data.results
-        SpotlightType.EVENTS -> marvelService.getEvents(marvelCharacterId).data.results
-        SpotlightType.SERIES -> marvelService.getSeries(marvelCharacterId).data.results
-        SpotlightType.STORIES -> marvelService.getStories(marvelCharacterId).data.results
+        SpotlightType.COMICS -> marvelService.getComics(characterId).data.results
+        SpotlightType.EVENTS -> marvelService.getEvents(characterId).data.results
+        SpotlightType.SERIES -> marvelService.getSeries(characterId).data.results
+        SpotlightType.STORIES -> marvelService.getStories(characterId).data.results
     }
 }

@@ -10,9 +10,9 @@ import com.clcmo.domain.entities.MarvelService
 import java.io.IOException
 import kotlin.math.ceil
 
-class CharactersDataSource(
+class MarvelCharactersDataSource(
     private val marvelService: MarvelService,
-    private val query: String? = null
+    private val query: String? = null,
 ) :
     PagingSource<Int, MarvelCharacter>() {
 
@@ -22,20 +22,20 @@ class CharactersDataSource(
         val pageNumber = params.key ?: 0
 
         return try {
-            val response =
-                marvelService.getCharacters(
-                    Constants.DEFAULT_PAGE_SIZE,
-                    pageNumber * Constants.CHARACTERS_OFFSET,
-                    query
-                )
+            val response = marvelService.getCharacters(
+                limit = Constants.DEFAULT_PAGE_SIZE,
+                offset = pageNumber * Constants.CHARACTERS_OFFSET,
+                nameStartsWith = query
+            )
+
+            val data = response.data
 
             val prevKey = when {
                 pageNumber > 0 -> pageNumber - 1
                 else -> null
             }
 
-            val totalPages =
-                ceil(response.data.total.toFloat() / response.data.limit.toFloat()).toInt()
+            val totalPages = ceil(data.total.toFloat() / data.total.toFloat()).toInt()
 
             val nextKey = when {
                 pageNumber < totalPages -> pageNumber + 1
@@ -43,7 +43,7 @@ class CharactersDataSource(
             }
 
             LoadResult.Page(
-                data = response.data.results,
+                data = data.results,
                 prevKey = prevKey,
                 nextKey = nextKey
             )
