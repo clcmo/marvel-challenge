@@ -1,7 +1,7 @@
 package com.clcmo.data.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MarvelCharacter(
@@ -9,5 +9,6 @@ data class MarvelCharacter(
     val description: String,
     val thumbnail: Thumbnail,
     val id: Int,
+    val isFavorite: Int,
 ) : Parcelable
 
