@@ -33,16 +33,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
 }
 
 dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     implementation project(':data')
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.2'
 
