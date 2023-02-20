@@ -29,7 +29,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      uses: gradle/gradle-build-action@6095a76664413da4c8c134ee32e8a8ae900f0f1f
       with:
         arguments: ./gradlew build
     - name: Run chmod to make gradlew executable
