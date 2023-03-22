@@ -21,6 +21,8 @@ android {
         buildConfigField "String", "MARVEL_API_KEY", secretProperties['app.MARVEL_API_KEY']
         buildConfigField "String", "MARVEL_PRIVATE_API_KEY", secretProperties['app.MARVEL_PRIVATE_API_KEY']
 
+        multiDexEnabled true
+
     }
 
     buildFeatures {
@@ -33,16 +35,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
 }
 
 dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:multidex:2.0.1'
+
     implementation project(':data')
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.2'
 
